@@ -12,6 +12,16 @@ function save_history($data)
 }
 
 
+function tele($data)
+{
+    $data  = urlencode($data);
+
+    $d['url'] = "https://api.telegram.org/bot1356149887:AAFOD2v7emP9b1AcfhdEQXuRz3hjddvW624/sendMessage?chat_id=@caridolarcair&text=$data";
+    $is = curl($d);
+}
+
+
+
 function gen_email()
 {
     return  str_replace(" ", "", gen_nama()) . mt_rand(100, 999);

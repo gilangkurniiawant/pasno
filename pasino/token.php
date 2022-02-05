@@ -88,13 +88,6 @@ function validate_json($str = NULL)
 }
 
 
-function tele($data)
-{
-    $data  = urlencode($data);
-
-    $d['url'] = "https://api.telegram.org/bot1356149887:AAFOD2v7emP9b1AcfhdEQXuRz3hjddvW624/sendMessage?chat_id=@caridolarcair&text=$data";
-    $is = curl($d);
-}
 
 
 function saldo($token)

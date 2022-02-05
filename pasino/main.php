@@ -118,10 +118,18 @@ if($non>100000){
 $set = explode("|", file_get_contents(__DIR__ . "/modul/set.txt"));
 $winchan = $set[1];
 $ls = 0;
+$bjum = $set[0];
 $jum = $set[0];
 $coin = $set[2];
 $maxjum = 1000;
+
+
 ulang:
+if ($jum > 5) {
+    tele("[+] Pecah Telor");
+    $jum = $bjum;
+}
+
 echo "|";
 if ($jum > $maxjum) {
 
@@ -136,12 +144,20 @@ $multiper = $replace[$winchan - 1];
 $dice  = json_decode(bet($jum, $winchan, $tipe,$coin), true); //1.094
 $non++;
 
+
+if ($dice['message'] == "Your balance is not sufficient to make this transaction.") {
+    tele("[+] Saldo Habis");
+    die();
+}
+
+
 if (@$dice['coin']) {
     if ($dice['win'] == 1) {
         echo "|Bet[$tipe]  Win $btse : " . $dice['profit'] . " Saldo :" . $dice['balance'] . " LS : $ls |[$lst][$allbet][$non]\n";
         goto awal;
     } else if ($dice['win'] == 0) {
         echo "|Bet[$tipe] Lose $btse : " . $dice['profit'] . " Saldo :" . $dice['balance'] . " LS : $ls |[$lst][$allbet][$non]\n";
+        sleep(5);
         $jum = $jum * $multiper;
         $ls++;
         if ($ls > $lst) {
