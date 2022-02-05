@@ -116,6 +116,11 @@ if($non>100000){
 }
 
 $set = explode("|", file_get_contents(__DIR__ . "/modul/set.txt"));
+$set = explode("|", file_get_contents(__DIR__ . "/modul/stop.txt"));
+
+if ($set == true) {
+    die();
+}
 $winchan = $set[1];
 $ls = 0;
 $bjum = $set[0];
