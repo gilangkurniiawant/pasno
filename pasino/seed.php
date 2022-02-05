@@ -22,7 +22,7 @@ function validate_json($str = NULL)
 
 function seed($token)
 {
-    $d['url'] = "https://api.pasino.com/dice/rotate-seed";
+    $d['url'] = "https://api.pasino.com/limbo/rotate-seed";
     $d['header'] = 'Host: api.pasino.com
 Cache-Control: max-age=0
 Sec-Ch-Ua: " Not A;Brand";v="99", "Chromium";v="96", "Microsoft Edge";v="96"
