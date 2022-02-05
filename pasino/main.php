@@ -116,9 +116,10 @@ if($non>100000){
 }
 
 $set = explode("|", file_get_contents(__DIR__ . "/modul/set.txt"));
-$stope = explode("|", file_get_contents(__DIR__ . "/modul/stop.txt"));
+$stope = file_get_contents(__DIR__ . "/modul/stop.txt");
 
-if ($stope == true) {
+if ($stope == "stop") {
+    echo "Stop";
     die();
 }
 $winchan = $set[1];
