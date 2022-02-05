@@ -157,7 +157,7 @@ if (@$dice['coin']) {
         goto awal;
     } else if ($dice['win'] == 0) {
         echo "|Bet[$tipe] Lose $btse : " . $dice['profit'] . " Saldo :" . $dice['balance'] . " LS : $ls |[$lst][$allbet][$non]\n";
-        sleep(5);
+        sleep(1);
         $jum = $jum * $multiper;
         $ls++;
         if ($ls > $lst) {
