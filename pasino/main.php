@@ -62,8 +62,8 @@ function bet($bet, $win_chance, $type = 1,$coin)
 //        $seed = "00000000999999990000000099999999888888889999999900000000";
 
      $seed = rand(11111111,99999999)."" . rand(11111111, 99999999) . "" . rand(11111111, 99999999) . "" . rand(11111111, 99999999) . "" . rand(11111111, 99999999) . "" . rand(11111111, 99999999) . "" . rand(11111111, 99999999) . "" . rand(11111111, 99999999);
-  //  $seed = "000";
-    $d['url'] = "https://api.pasino.com/dice/play";
+    //  $seed = "000";
+    $d['url'] = "https://api.pasino.com/limbo/play";
     $d['header'] = 'Host: api.pasino.com
 Cache-Control: max-age=0
 Sec-Ch-Ua: " Not A;Brand";v="99", "Chromium";v="96", "Microsoft Edge";v="96"
@@ -78,8 +78,9 @@ Sec-Fetch-Mode: cors
 Sec-Fetch-Dest: empty
 Referer: https://pasino.com/
 Accept-Language: en-US,en;q=0.9';
-    $d['data'] = '{
-    "token": "'.$token.'",
+    /*  
+$d['data'] = '{
+    "token": "",
     "bet_amt": "' . $bet . '",
     "coin": "'.$coin.'",
     "type": ' . $type . ',
@@ -87,6 +88,15 @@ Accept-Language: en-US,en;q=0.9';
     "winning_chance": "' . $win_chance . '",
     "profit": "' . $profit . '",
     "client_seed": "' . $seed . '"
+}';
+*/
+    $d['data'] = '{
+    "language": "id",
+    "client_seed": "' . $seed . '",
+    "bet_amt": "' . $bet . '",
+    "coin": "TRX",
+    "target_payout": "' . $payout . '",
+    "token": "' . $token . '"
 }';
 
  //   echo $d['data'];
